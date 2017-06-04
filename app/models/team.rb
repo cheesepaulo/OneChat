@@ -8,7 +8,7 @@ class Team < ApplicationRecord
   validates :slug, uniqueness: true, format: { with: /\A[a-zA-Z0-9]+\Z/ }
 
   before_save :general_channel
-
+  
   def general_channel
     self.channels << Channel.create(slug: 'general', user_id: self.user.id)
   end
