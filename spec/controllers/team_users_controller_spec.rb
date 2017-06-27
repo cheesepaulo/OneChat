@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ChannelsController, type: :controller do
+RSpec.describe TeamUsersController, type: :controller do
 
   describe "GET #create" do
     it "returns http success" do
@@ -12,13 +12,6 @@ RSpec.describe ChannelsController, type: :controller do
   describe "GET #destroy" do
     it "returns http success" do
       get :destroy
-      expect(response).to have_http_status(:success)
-    end
-  end
-
-  describe "GET #show" do
-    it "returns http success" do
-      get :show
       expect(response).to have_http_status(:success)
     end
   end
