@@ -1,24 +1,17 @@
 Rails.application.routes.draw do
-  get 'team_users/create'
 
-  get 'team_users/destroy'
+  root to: 'teams#index'
 
-  get 'talks/show'
+  resources :teams, only: [:create, :destroy]
 
-  get 'channels/create'
+  get '/:slug', to: 'teams#show'
 
-  get 'channels/destroy'
+  resources :channels, only: [:show, :create, :destroy]
 
-  get 'channels/show'
+  resources :talks, only: [:show]
 
-  get 'teams/index'
-
-  get 'teams/show'
-
-  get 'teams/create'
-
-  get 'teams/destroy'
+  resources :team_users, only: [:create, :destroy]
 
   devise_for :users, :controllers => { registrations: 'registrations' }
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
 end
